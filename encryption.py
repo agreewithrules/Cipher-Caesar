@@ -20,7 +20,7 @@ def decrypt(text: str, key: int, alp_len: int) -> str:
 
     old_text = ''
     for char in text.split('-'):
-        new_char = d2[int(char) + max_value_in_alp - 42 if int(char) + max_value_in_alp > 41 else int(char) + max_value_in_alp] \
+        new_char = d2[int(char) + max_value_in_alp - (alp_len + 1) if int(char) + max_value_in_alp > alp_len else int(char) + max_value_in_alp] \
             if int(char) - key <= 0 else d2[int(char) - key]   #гениальная строка особенно верхняя часть
         old_text += new_char
     return old_text
